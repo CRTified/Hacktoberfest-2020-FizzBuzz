@@ -1,0 +1,30 @@
+% LaTeX solution
+% Author: @CRTified
+
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{intcalc}
+\usepackage{forloop}
+\setlength{\parindent}{0em}
+\begin{document}
+\newcounter{i}
+\forloop{i}{1}{\value{i} < 100} {
+  \ifthenelse%
+      {\equal{\intcalcMod{\value{i}}{15}}{0}}%
+      {FizzBuzz}
+      {
+        \ifthenelse%
+            {\equal{\intcalcMod{\value{i}}{5}}{0}}%
+            {Buzz}%
+            {
+              \ifthenelse%
+                  {\equal{\intcalcMod{\value{i}}{3}}{0}}%
+                  {Fizz}%
+                  {
+                    \thei
+                  }
+            }
+      }
+      \\
+}
+\end{document}
